@@ -1,7 +1,8 @@
-package com.example.jorge.infoglobo
+package com.example.jorge.infoglobo.news
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.jorge.infoglobo.R
 
 class NewsActivity : AppCompatActivity() {
 

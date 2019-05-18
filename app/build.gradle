@@ -30,4 +30,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Retrofit for acees Api
+    implementation "com.squareup.retrofit2:converter-gson:$Retrofit_version"
+    implementation "com.squareup.retrofit2:retrofit:$Retrofit_version"
+
+    // RecycleView and CardView
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
+
+    // Image
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+
+    // rxJava
+    implementation "io.reactivex:rxandroid:$rxandroid"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$Retrofit_version"
 }
