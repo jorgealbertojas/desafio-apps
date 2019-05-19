@@ -11,6 +11,8 @@ public class Images implements Serializable {
 
     @SerializedName("autor")
     private String author;
+    @SerializedName("fonte")
+    private String source;
     @SerializedName("legenda")
     private String subtitle;
     @SerializedName("url")
@@ -38,5 +40,13 @@ public class Images implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }

@@ -3,7 +3,6 @@ package com.example.jorge.infoglobo.detailNews;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,11 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
 
     private ImageView mMovieImage;
     private TextView mTitle;
-    private TextView mOverview;
-    private TextView mReleseDate;
-    private TextView mVoteAverage;
-    private TextView mOriginalLanguage;
+    private TextView mSubtitle;
+    private TextView mEditoria;
+    private TextView mDateTime;
+    private TextView mSubtitleSource;
+    private TextView mText;
 
 
     public static News mNews;
@@ -54,7 +54,12 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
         View root = inflater.inflate(R.layout.fragment_detail_news, container, false);
 
         mMovieImage = (ImageView) root.findViewById(R.id.iv_image_news_detail);
-        mTitle = (TextView) root.findViewById(R.id.tv_Title_detail);
+        mTitle = (TextView) root.findViewById(R.id.tv_title);
+        mSubtitle = (TextView) root.findViewById(R.id.tv_subtitle);
+        mEditoria = (TextView) root.findViewById(R.id.tv_editoria);
+        mDateTime = (TextView) root.findViewById(R.id.tv_date_time);
+        mSubtitleSource = (TextView) root.findViewById(R.id.tv_subtitle_source);
+        mText = (TextView) root.findViewById(R.id.tv_text);
 
         return root;
     }
@@ -70,6 +75,11 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
         mNews = news;
 
         mTitle.setText(mNews.getTitle());
+        mSubtitle.setText(mNews.getSubTitle());
+        mEditoria.setText(mNews.getEditoria().getName());
+        mDateTime.setText(mNews.getPublishedIn());
+        mSubtitleSource.setText(mNews.getImage().get(0).getSubtitle() + " " + mNews.getImage().get(0).getSource());
+        mText.setText(mNews.getText());
 
 
         int imageDimension =

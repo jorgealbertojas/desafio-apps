@@ -10,7 +10,7 @@
     <dimen name="text2_size">14dp</dimen>
     <dimen name="text3_margin_end">16dp</dimen>
     <dimen name="text3_wight_height">24dp</dimen>
-    <dimen name="text3_size">12dp</dimen>
+    <dimen name="text3_size">12sp</dimen>
     <dimen name="card_height">88dp</dimen>
     <dimen name="card_margin">2dp</dimen>
     <dimen name="card_CornerRadius">5dp</dimen>
@@ -33,6 +33,9 @@
     <dimen name="title2_text">16sp</dimen>
     <dimen name="title2_bottom_padding">16dp</dimen>
     <dimen name="title2_right_and_left_padding">16dp</dimen>
+
+    <dimen name="title0_text">36sp</dimen>
+
 
     <dimen name="action_padding">8dp</dimen>
     <dimen name="action_margin">4dp</dimen>
