@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#244bcf</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="textTitle1">#000000</color>
-    <color name="textTitle2">#858586</color>
+    <color name="textTitleBlack">#000000</color>
+    <color name="textTitleGrey">#858586</color>
+
+    <color name="textTitleWrite">#ffffff</color>
+
+    <color name="Black">#000000</color>
 </resources>

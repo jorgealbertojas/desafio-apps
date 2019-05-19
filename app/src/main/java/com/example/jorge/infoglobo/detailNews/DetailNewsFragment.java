@@ -1,8 +1,10 @@
 package com.example.jorge.infoglobo.detailNews;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,6 +82,9 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
         mDateTime.setText(mNews.getPublishedIn());
         mSubtitleSource.setText(mNews.getImage().get(0).getSubtitle() + " " + mNews.getImage().get(0).getSource());
         mText.setText(mNews.getText());
+
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/" + "times-new-roman-14.ttf");
+        mText.setTypeface(tf);
 
 
         int imageDimension =
