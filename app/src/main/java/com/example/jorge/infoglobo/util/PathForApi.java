@@ -5,10 +5,10 @@ public class PathForApi {
     /**
      *   url Api News
      */
-    public final static String BASE_URL = "https://raw.githubusercontent.com/";
+    public final static String BASE_URL = "https://raw.githubusercontent.com/Infoglobo/desafio-apps/master/";
 
     /**
      * Returns News
      */
-    public final static String NEWS = "/Infoglobo/desafio-apps/master/capa.json";
+    public final static String NEWS = "capa.json";
 }

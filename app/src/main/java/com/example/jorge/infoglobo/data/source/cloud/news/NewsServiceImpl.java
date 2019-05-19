@@ -6,31 +6,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.util.List;
+
 public class NewsServiceImpl implements NewsServiceApi {
 
     NewsEndpoint mRetrofit;
-    private static int page = 1;
 
     public NewsServiceImpl(){
         mRetrofit = NewsClient.getNews().create(NewsEndpoint.class);
     }
 
     @Override
-    public void getNews(final NewsServiceApi.NewsServiceCallback<News<Contents>> callback) {
+    public void getNews(final NewsServiceApi.NewsServiceCallback<List<Contents>> callback) {
 
-        Call<News<Contents>> callNews  = mRetrofit.getNews();
+        Call<List<Contents>> callNews  = mRetrofit.getNews();
 
-        callNews.enqueue(new Callback<News<Contents>>() {
+        callNews.enqueue(new Callback<List<Contents>>() {
             @Override
-            public void onResponse(Call<News<Contents>> call, Response<News<Contents>> response) {
+            public void onResponse(Call<List<Contents>> call, Response<List<Contents>> response) {
                 if(response.code()==200){
-                    News<Contents> resultSearch = response.body();
+                    List<News> resultSearch = response.body().get(0).getContents();
                     callback.onLoaded(resultSearch);
                 }
             }
 
             @Override
-            public void onFailure(Call<News<Contents>> call, Throwable t) {
+            public void onFailure(Call<List<Contents>> call, Throwable t) {
 
             }
 

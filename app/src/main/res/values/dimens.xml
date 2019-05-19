@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Android Design guidelines. List - Specs - Three line -->
+    <dimen name="image_margin_top_bottom">16dp</dimen>
+    <dimen name="image_wight">100dp</dimen>
+    <dimen name="text1_margin_left">16dp</dimen>
+    <dimen name="text1_size">16dp</dimen>
+    <dimen name="text2_margin_left">16dp</dimen>
+    <dimen name="text2_margin_start">16dp</dimen>
+    <dimen name="text2_size">14dp</dimen>
+    <dimen name="text3_margin_end">16dp</dimen>
+    <dimen name="text3_wight_height">24dp</dimen>
+    <dimen name="text3_size">12dp</dimen>
+    <dimen name="card_height">88dp</dimen>
+    <dimen name="card_margin">2dp</dimen>
+    <dimen name="card_CornerRadius">5dp</dimen>
+    <dimen name="card_Elevation">4dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="list_item_padding">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Android Design guidelines. Cards with Actions -->
+    <dimen name="title1_text">24sp</dimen>
+    <dimen name="title1_top_padding">24dp</dimen>
+    <dimen name="title1_bottom_padding">16dp</dimen>
+    <dimen name="title1_right_and_left_padding">16dp</dimen>
+
+    <dimen name="title2_text">16sp</dimen>
+    <dimen name="title2_bottom_padding">16dp</dimen>
+    <dimen name="title2_right_and_left_padding">16dp</dimen>
+
+    <dimen name="action_padding">8dp</dimen>
+    <dimen name="action_margin">4dp</dimen>
+
+
+</resources>

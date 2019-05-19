@@ -3,6 +3,8 @@ package com.example.jorge.infoglobo.data.source.cloud.news;
 import com.example.jorge.infoglobo.data.source.cloud.news.model.Contents;
 import com.example.jorge.infoglobo.data.source.cloud.news.model.News;
 
+import java.util.List;
+
 public interface NewsServiceApi {
         /**
          * Interface for signature Cars Service Callback
@@ -10,11 +12,11 @@ public interface NewsServiceApi {
          */
         interface NewsServiceCallback<T> {
 
-            void onLoaded(News<Contents> contentsNews);
+            void onLoaded(List<News> newsList);
 
         }
 
-        void getNews(NewsServiceCallback<News<Contents> > callback);
+        void getNews(NewsServiceCallback<List<Contents>> callback);
 
     }
 

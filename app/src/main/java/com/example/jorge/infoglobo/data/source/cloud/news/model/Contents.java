@@ -11,63 +11,14 @@ import java.util.List;
  */
 public class Contents implements Serializable {
 
-    @SerializedName("titulo")
-    private String title;
-    @SerializedName("subTitulo")
-    private String subTitle;
-    @SerializedName("publicadoEm")
-    private String publishedIn;
-    private String author;
-    @SerializedName("imagens")
-    private List<Images> image;
-    @SerializedName("texto")
-    private String text;
+    @SerializedName("conteudos")
+    private List<News> contents;
 
-    public String getTitle() {
-        return title;
+    public List<News> getContents() {
+        return contents;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubTitle() {
-        return subTitle;
-    }
-
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
-    }
-
-    public String getPublishedIn() {
-        return publishedIn;
-    }
-
-    public void setPublishedIn(String publishedIn) {
-        this.publishedIn = publishedIn;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public List<Images> getImage() {
-        return image;
-    }
-
-    public void setImage(List<Images> image) {
-        this.image = image;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
+    public void setContents(List<News> contents) {
+        this.contents = contents;
     }
 }
