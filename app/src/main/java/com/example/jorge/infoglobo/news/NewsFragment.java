@@ -1,6 +1,7 @@
 package com.example.jorge.infoglobo.news;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 import com.example.jorge.infoglobo.R;
 import com.example.jorge.infoglobo.data.source.cloud.news.NewsServiceImpl;
 import com.example.jorge.infoglobo.data.source.cloud.news.model.News;
-import com.example.jorge.infoglobo.data.source.cloud.news.model.News;
+import com.example.jorge.infoglobo.detailNews.DetailNewsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -28,6 +29,8 @@ import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
 public class NewsFragment extends Fragment implements NewsContract.View{
 
+
+    public final static String EXTRA_NEWS = "EXTRA_NEWS";
     private NewsAdapter mListAdapter;
     private RecyclerView mRecyclerView;
     private static NewsContract.UserActionsListener mActionsListener;
@@ -265,8 +268,13 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
             @Override
             public void onClick(View view) {
+                int position = getAdapterPosition();
+                News news = getItem(position);
+                mItemListener.onNewsClick(news);
 
-
+                Intent intent = new Intent(getContext(), DetailNewsActivity.class);
+                intent.putExtra(EXTRA_NEWS, news);
+                startActivity(intent);
 
             }
         }
@@ -277,7 +285,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
      */
     ItemListener mItemListener = new ItemListener() {
         @Override
-        public void onNewsClick(List<News> clickedNews) {
+        public void onNewsClick(News clickedNews) {
             mActionsListener.loadingNews();
         }
 
@@ -286,7 +294,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
     public interface ItemListener {
 
-        void onNewsClick(List<News> clickedNews);
+        void onNewsClick(News clickedNews);
     }
 }
 
