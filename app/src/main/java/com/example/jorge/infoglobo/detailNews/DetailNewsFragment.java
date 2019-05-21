@@ -91,11 +91,11 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
         mText.setTypeface(tf);
 
 
-        int imageDimension =
-                (int) mMovieImage.getContext().getResources().getDimension(R.dimen.card_height);
+       int imageDimension =
+                (int) mMovieImage.getContext().getResources().getDimension(R.dimen.image_height_size);
 
         int imageWight =
-                (int) mMovieImage.getContext().getResources().getDimension(R.dimen.image_wight);
+                (int) mMovieImage.getContext().getResources().getDimension(R.dimen.image_width_size);
 
         Picasso.with(mMovieImage.getContext())
                 .load(mNews.getImage().get(0).getUrl())

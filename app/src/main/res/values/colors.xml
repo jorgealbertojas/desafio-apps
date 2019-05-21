@@ -4,11 +4,13 @@
     <color name="colorPrimaryDark">#244bcf</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="grey">#858586</color>
+    <color name="black">#000000</color>
+
     <color name="textTitleBlack">#000000</color>
     <color name="textTitleGrey">#858586</color>
     <color name="textTitleWrite">#ffffff</color>
     <color name="textTitleBlue">#040c4b</color>
     <color name="textTitleBlueLight">#6b7bff</color>
 
-    <color name="black">#000000</color>
 </resources>

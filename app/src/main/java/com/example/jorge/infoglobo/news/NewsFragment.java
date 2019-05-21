@@ -206,10 +206,10 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
 
             int imageDimension =
-                    (int) viewHolder.newsImage.getContext().getResources().getDimension(R.dimen.card_height);
+                    (int) viewHolder.newsImage.getContext().getResources().getDimension(R.dimen.image_height_size);
 
             int imageWight =
-                    (int) viewHolder.newsImage.getContext().getResources().getDimension(R.dimen.image_wight);
+                    (int) viewHolder.newsImage.getContext().getResources().getDimension(R.dimen.image_width_size);
 
             if (news.getImage().size() > 0) {
                 Picasso.with(viewHolder.newsImage.getContext())

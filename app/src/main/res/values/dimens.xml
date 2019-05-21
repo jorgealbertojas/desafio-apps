@@ -1,19 +1,13 @@
 <resources>
 
     <!-- Android Design guidelines. List - Specs - Three line -->
+    <dimen name="image_width_size">100dp</dimen>
+    <dimen name="image_height_size">56dp</dimen>
     <dimen name="image_margin_top_bottom">16dp</dimen>
-    <dimen name="image_wight">100dp</dimen>
-    <dimen name="text1_margin_left">16dp</dimen>
-    <dimen name="text2_margin_left">16dp</dimen>
-    <dimen name="text2_margin_start">16dp</dimen>
-
-    <dimen name="text3_margin_end">16dp</dimen>
-    <dimen name="text3_wight_height">24dp</dimen>
-
-    <dimen name="card_height">88dp</dimen>
-    <dimen name="card_margin">2dp</dimen>
-    <dimen name="card_CornerRadius">5dp</dimen>
-    <dimen name="card_Elevation">4dp</dimen>
+    <dimen name="text_list_title1_size">16dp</dimen>
+    <dimen name="text_list_information1_size">14dp</dimen>
+    <dimen name="text_list_title2_size">16dp</dimen>
+    <dimen name="text_list_information2_size">14dp</dimen>
 
 
     <!-- Text Size screen margins, per the Android Design guidelines. -->
@@ -21,10 +15,6 @@
     <dimen name="text_text_size">24sp</dimen>
     <dimen name="text_subtitle_source_size">14sp</dimen>
     <dimen name="text_information_size">16sp</dimen>
-    <dimen name="text_list_title1_size">16sp</dimen>
-    <dimen name="text_list_information1_size">16sp</dimen>
-    <dimen name="text_list_title2_size">16sp</dimen>
-    <dimen name="text_list_information2_size">16sp</dimen>
 
 
     <!-- Default screen margins, per the Android Design guidelines. -->
@@ -49,6 +39,20 @@
 
     <dimen name="action_padding">8dp</dimen>
     <dimen name="action_margin">4dp</dimen>
+
+
+    <dimen name="text1_margin_left">16dp</dimen>
+    <dimen name="text2_margin_left">16dp</dimen>
+    <dimen name="text2_margin_start">16dp</dimen>
+
+    <dimen name="text3_margin_end">16dp</dimen>
+    <dimen name="text3_wight_height">24dp</dimen>
+
+    <dimen name="card_height">88dp</dimen>
+    <dimen name="card_margin">2dp</dimen>
+
+
+
 
 
 </resources>

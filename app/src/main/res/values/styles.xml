@@ -54,21 +54,25 @@
     <style name="text_list_title1">
         <item name="android:textColor">@color/textTitleGrey</item>
         <item name="android:textSize">@dimen/text_list_title1_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="text_list_information1">
         <item name="android:textColor">@color/textTitleBlue</item>
         <item name="android:textSize">@dimen/text_list_information1_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="text_list_title2">
         <item name="android:textColor">@color/textTitleWrite</item>
         <item name="android:textSize">@dimen/text_list_title1_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="text_list_information2">
         <item name="android:textColor">@color/textTitleWrite</item>
         <item name="android:textSize">@dimen/text_list_information1_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 
