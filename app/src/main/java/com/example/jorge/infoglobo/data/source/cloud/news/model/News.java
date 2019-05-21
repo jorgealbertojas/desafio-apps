@@ -7,6 +7,8 @@ import java.util.List;
 
 public class News implements Serializable {
 
+    @SerializedName("autores")
+    private List<String> actors;
     @SerializedName("titulo")
     private String title;
     @SerializedName("subTitulo")
@@ -76,5 +78,13 @@ public class News implements Serializable {
 
     public void setEditoria(Editoria editoria) {
         this.editoria = editoria;
+    }
+
+    public List<String> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<String> actors) {
+        this.actors = actors;
     }
 }

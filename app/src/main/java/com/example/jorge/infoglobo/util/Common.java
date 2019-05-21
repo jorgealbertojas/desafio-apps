@@ -8,6 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
 public class Common {
@@ -22,6 +28,22 @@ public class Common {
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
+    /**
+     * Format date and time .
+     */
+    public static String formatDate(String date) {
+        if (date != null) {
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss-SSS", Locale.ENGLISH);
+            try {
+                Date data = formato.parse(date);
+                Date d = data;
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                return sdf.format(d);
+            } catch (ParseException e) {
+                e.printStackTrace(); }
+        }
+        return "";
+    }
 
     /**
      * This function is added to the container view with id {@code frameId}. The operation is

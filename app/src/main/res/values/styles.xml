@@ -8,4 +8,69 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Base text view Style -->
+
+    <style name="text_title">
+        <item name="android:textColor">@color/textTitleBlue</item>
+        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_subTitle">
+        <item name="android:textColor">@color/textTitleBlue</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text_text_size</item>
+    </style>
+
+    <style name="text_information1">
+        <item name="android:textColor">@color/textTitleGrey</item>
+        <item name="android:textSize">@dimen/text_information_size</item>
+        <item name="android:textAlignment">textEnd</item>
+    </style>
+
+    <style name="text_information2">
+        <item name="android:textColor">@color/textTitleBlueLight</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_information_size</item>
+    </style>
+
+    <style name="text_date_time">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/textTitleGrey</item>
+        <item name="android:textSize">@dimen/text_list_information1_size</item>
+    </style>
+
+    <style name="text_subTitle_source">
+        <item name="android:textColor">@color/textTitleWrite</item>
+        <item name="android:textSize">@dimen/text_subtitle_source_size</item>
+    </style>
+
+    <style name="text_text">
+        <item name="android:textColor">@color/textTitleBlack</item>
+        <item name="android:textSize">@dimen/text_text_size</item>
+    </style>
+
+    <style name="text_list_title1">
+        <item name="android:textColor">@color/textTitleGrey</item>
+        <item name="android:textSize">@dimen/text_list_title1_size</item>
+    </style>
+
+    <style name="text_list_information1">
+        <item name="android:textColor">@color/textTitleBlue</item>
+        <item name="android:textSize">@dimen/text_list_information1_size</item>
+    </style>
+
+    <style name="text_list_title2">
+        <item name="android:textColor">@color/textTitleWrite</item>
+        <item name="android:textSize">@dimen/text_list_title1_size</item>
+    </style>
+
+    <style name="text_list_information2">
+        <item name="android:textColor">@color/textTitleWrite</item>
+        <item name="android:textSize">@dimen/text_list_information1_size</item>
+    </style>
+
+
+
 </resources>

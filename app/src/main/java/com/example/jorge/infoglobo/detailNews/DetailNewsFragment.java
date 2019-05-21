@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.jorge.infoglobo.R;
 import com.example.jorge.infoglobo.data.source.cloud.news.model.News;
+import com.example.jorge.infoglobo.util.Common;
 import com.squareup.picasso.Picasso;
 
 public class DetailNewsFragment extends Fragment implements DetailNewsContract.View {
@@ -76,14 +76,18 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
 
         mNews = news;
 
+        getActivity().setTitle(mNews.getEditoria().getName());
+
         mTitle.setText(mNews.getTitle());
         mSubtitle.setText(mNews.getSubTitle());
-        mEditoria.setText(mNews.getEditoria().getName());
-        mDateTime.setText(mNews.getPublishedIn());
+        if (mNews.getActors() != null){
+            mEditoria.setText(mNews.getActors().get(0));
+        }
+        mDateTime.setText(Common.formatDate(mNews.getPublishedIn()));
         mSubtitleSource.setText(mNews.getImage().get(0).getSubtitle() + " " + mNews.getImage().get(0).getSource());
         mText.setText(mNews.getText());
 
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/" + "times-new-roman-14.ttf");
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/" + "times_new_roman.ttf");
         mText.setTypeface(tf);
 
 

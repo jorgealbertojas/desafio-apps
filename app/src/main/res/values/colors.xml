@@ -6,8 +6,9 @@
 
     <color name="textTitleBlack">#000000</color>
     <color name="textTitleGrey">#858586</color>
-
     <color name="textTitleWrite">#ffffff</color>
+    <color name="textTitleBlue">#040c4b</color>
+    <color name="textTitleBlueLight">#6b7bff</color>
 
-    <color name="Black">#000000</color>
+    <color name="black">#000000</color>
 </resources>
