@@ -45,6 +45,12 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
     private List<News> mListNews;
 
+    private static int position = 0;
+
+    private static View noteView;
+
+    private static  LayoutInflater inflater;
+
     /**
      * Constructor
      */
@@ -194,8 +200,13 @@ public class NewsFragment extends Fragment implements NewsContract.View{
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             Context context = parent.getContext();
-            LayoutInflater inflater = LayoutInflater.from(context);
-            View noteView = inflater.inflate(R.layout.item_news, parent, false);
+            inflater = LayoutInflater.from(context);
+            if (position == 0) {
+                position ++;
+                noteView = inflater.inflate(R.layout.item_news_first, parent, false);
+            }else{
+                noteView = inflater.inflate(R.layout.item_news, parent, false);
+            }
 
             return new ViewHolder(noteView, mItemListener);
         }
@@ -221,7 +232,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
             }
 
             viewHolder.title.setText(news.getTitle());
-            viewHolder.editoria.setText(news.getEditoria().getName());
+            viewHolder.editoria.setText(news.getEditoria().getName().toUpperCase());
 
         }
 

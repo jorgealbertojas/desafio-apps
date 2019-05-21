@@ -66,12 +66,15 @@
     <style name="text_list_title2">
         <item name="android:textColor">@color/textTitleWrite</item>
         <item name="android:textSize">@dimen/text_list_title1_size</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="text_list_information2">
         <item name="android:textColor">@color/textTitleWrite</item>
         <item name="android:textSize">@dimen/text_list_information1_size</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
