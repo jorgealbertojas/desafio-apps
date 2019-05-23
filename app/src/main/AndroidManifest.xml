@@ -22,12 +22,7 @@
         </activity>
         <activity
                 android:name=".detailNews.DetailNewsActivity"
-
-                android:parentActivityName=".news.NewsActivity"
-                android:theme="@style/AppTheme">
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".news.NewsActivity"/>
+                android:theme="@style/AppTheme.NoTitle">
         </activity>
     </application>
 

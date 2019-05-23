@@ -2,6 +2,7 @@ package com.example.jorge.infoglobo.detailNews;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
 import com.example.jorge.infoglobo.R;
 import com.example.jorge.infoglobo.data.source.cloud.news.model.News;
 import com.example.jorge.infoglobo.util.Common;

@@ -1,9 +1,11 @@
 package com.example.jorge.infoglobo.detailNews;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,8 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
 
     public static News mNews;
 
+    TextView name;
+
     public DetailNewsFragment() {
     }
 
@@ -41,6 +45,9 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActionsListener = new DetailNewsPresenter(this, getContext());
+
+
+
     }
 
     @Override
@@ -54,6 +61,32 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
                              Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_detail_news, container, false);
+
+        AppCompatImageView AppCompatImageView = root.findViewById(R.id.aciv_back);
+        AppCompatImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+
+        name = root.findViewById(R.id.tv_name);
+
+        AppCompatImageView share = root.findViewById(R.id.iv_share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                if (mNews.getTitle() != null) {
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mNews.getTitle());
+                }
+                if (mNews.getText() != null) {
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mNews.getText());
+                }
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+            }
+        });
 
         mMovieImage = (ImageView) root.findViewById(R.id.iv_image_news_detail);
         mTitle = (TextView) root.findViewById(R.id.tv_title);
@@ -76,7 +109,7 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
 
         mNews = news;
 
-        getActivity().setTitle(mNews.getEditoria().getName());
+        name.setText(mNews.getEditoria().getName());
 
         mTitle.setText(mNews.getTitle());
         mSubtitle.setText(mNews.getSubTitle());
