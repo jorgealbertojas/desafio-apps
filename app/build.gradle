@@ -20,6 +20,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
@@ -45,4 +47,10 @@ dependencies {
     // rxJava
     implementation "io.reactivex:rxandroid:$rxandroid"
     implementation "com.squareup.retrofit2:adapter-rxjava:$Retrofit_version"
+
+    testImplementation "org.mockito:mockito-core:$mockito"
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    dependencies {implementation 'com.google.code.gson:gson:2.8.0'}
+
 }

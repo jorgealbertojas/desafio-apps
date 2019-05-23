@@ -17,7 +17,6 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
-
         if (null == savedInstanceState) {
             if (Common.isOnline(this)) {
                 initFragment(NewsFragment.newInstance());

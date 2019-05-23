@@ -1,17 +1,23 @@
 package com.example.jorge.infoglobo.util;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import com.example.jorge.infoglobo.data.source.cloud.news.model.Contents;
+import com.google.gson.Gson;
 
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
@@ -26,6 +32,15 @@ public class Common {
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    /**
+     * Check it list object null or empty
+     * @param c
+     * @return
+     */
+    public static boolean isNullOrEmpty( final Collection< ? > c ) {
+        return c == null || c.isEmpty();
     }
 
     /**
@@ -58,4 +73,6 @@ public class Common {
         transaction.add(frameId, fragment);
         transaction.commit();
     }
+
+    public static boolean test = false;
 }

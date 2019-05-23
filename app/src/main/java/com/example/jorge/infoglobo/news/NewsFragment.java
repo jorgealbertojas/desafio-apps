@@ -15,11 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.jorge.infoglobo.FakeNewsServiceApi;
 import com.example.jorge.infoglobo.R;
 import com.example.jorge.infoglobo.data.source.cloud.news.NewsServiceImpl;
 import com.example.jorge.infoglobo.data.source.cloud.news.model.News;
 import com.example.jorge.infoglobo.detailNews.DetailNewsActivity;
+import com.example.jorge.infoglobo.util.Common;
+import com.example.jorge.infoglobo.util.GenericViewHolder;
 import com.squareup.picasso.Picasso;
+import org.jetbrains.annotations.TestOnly;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -51,6 +55,10 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
     private static  LayoutInflater inflater;
 
+    private static int VIEW_TYPE1 = 0;
+    private static int VIEW_TYPE_OTHER = 1;
+
+
     /**
      * Constructor
      */
@@ -73,7 +81,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
         mNewsContract = this;
         if (savedInstanceState == null) {
             mListAdapter = new NewsAdapter(new ArrayList<News>(), mItemListener);
-            mActionsListener = new NewsPresenter(new NewsServiceImpl(), this);
+            mActionsListener = new NewsPresenter(new NewsServiceImpl(), this, new FakeNewsServiceApi(this));
             mActionsListener.loadingNews();
             mActionsListener.start();
         }
@@ -129,7 +137,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     }
 
     /**
-     * Init RecyclerView fro show list car
+     * Init RecyclerView fro show list news
      * @param root
      */
     private void initRecyclerView(View root){
@@ -171,10 +179,10 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
     @Override
     public void showNews(List<News> newsList) {
-        if (mRecyclerView.getAdapter().getItemCount() > 0) {
-            newsList.addAll(0,(List<News>) mListAdapter.newsList);
+        if (!Common.isNullOrEmpty(newsList)) {
+            mListAdapter.replaceData(newsList);
         }
-        mListAdapter.replaceData(newsList);
+
     }
 
 
@@ -215,6 +223,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
         public void onBindViewHolder(ViewHolder viewHolder, int position) {
             News news = newsList.get(position);
 
+            viewHolder.setDataOnView(position);
 
             int imageDimension =
                     (int) viewHolder.newsImage.getContext().getResources().getDimension(R.dimen.image_height_size);
@@ -222,9 +231,16 @@ public class NewsFragment extends Fragment implements NewsContract.View{
             int imageWight =
                     (int) viewHolder.newsImage.getContext().getResources().getDimension(R.dimen.image_width_size);
 
-            if (news.getImage().size() > 0) {
+            if (!Common.isNullOrEmpty(news.getImage())) {
                 Picasso.with(viewHolder.newsImage.getContext())
                         .load(news.getImage().get(0).getUrl())
+                        .resize(imageWight, imageDimension)
+                        .onlyScaleDown()
+                        .error(R.drawable.ic_error_black_24dp)
+                        .into(viewHolder.newsImage);
+            }else{
+                Picasso.with(viewHolder.newsImage.getContext())
+                        .load(R.mipmap.ic_globo)
                         .resize(imageWight, imageDimension)
                         .onlyScaleDown()
                         .error(R.drawable.ic_error_black_24dp)
@@ -238,7 +254,10 @@ public class NewsFragment extends Fragment implements NewsContract.View{
 
         public void replaceData(List<News> newsList) {
             setList(newsList);
-            mRecyclerView.getAdapter().notifyDataSetChanged();
+            if (mRecyclerView != null){
+                mRecyclerView.getAdapter().notifyDataSetChanged();
+            }
+
         }
 
 
@@ -256,11 +275,21 @@ public class NewsFragment extends Fragment implements NewsContract.View{
             }
         }
 
+        @Override
+        public int getItemViewType(int position) {
+            // depends on your problem
+            switch (position) {
+                case 0 : return VIEW_TYPE1;
+                default : return VIEW_TYPE_OTHER;
+
+            }
+        }
+
         public News getItem(int position) {
             return newsList.get(position);
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public class ViewHolder extends GenericViewHolder implements View.OnClickListener {
 
             public ImageView newsImage;
             public TextView title;
@@ -286,6 +315,11 @@ public class NewsFragment extends Fragment implements NewsContract.View{
                 Intent intent = new Intent(getContext(), DetailNewsActivity.class);
                 intent.putExtra(EXTRA_NEWS, news);
                 startActivity(intent);
+
+            }
+
+            @Override
+            public void setDataOnView(int position) {
 
             }
         }

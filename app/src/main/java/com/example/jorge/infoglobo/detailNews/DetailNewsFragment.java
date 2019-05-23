@@ -80,11 +80,13 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
 
         mTitle.setText(mNews.getTitle());
         mSubtitle.setText(mNews.getSubTitle());
-        if (mNews.getActors() != null){
+        if (!Common.isNullOrEmpty(mNews.getActors())){
             mEditoria.setText(mNews.getActors().get(0));
         }
         mDateTime.setText(Common.formatDate(mNews.getPublishedIn()));
-        mSubtitleSource.setText(mNews.getImage().get(0).getSubtitle() + " " + mNews.getImage().get(0).getSource());
+        if (!Common.isNullOrEmpty(mNews.getImage())) {
+            mSubtitleSource.setText(mNews.getImage().get(0).getSubtitle() + " " + mNews.getImage().get(0).getSource());
+        }
         mText.setText(mNews.getText());
 
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/" + "times_new_roman.ttf");
@@ -97,12 +99,21 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
         int imageWight =
                 (int) mMovieImage.getContext().getResources().getDimension(R.dimen.image_width_size);
 
-        Picasso.with(mMovieImage.getContext())
-                .load(mNews.getImage().get(0).getUrl())
-                .resize(imageWight,imageDimension)
-                .onlyScaleDown()
-                .error(R.drawable.ic_error_black_24dp)
-                .into(mMovieImage);
+        if (!Common.isNullOrEmpty(mNews.getImage())) {
+            Picasso.with(mMovieImage.getContext())
+                    .load(mNews.getImage().get(0).getUrl())
+                    .resize(imageWight, imageDimension)
+                    .onlyScaleDown()
+                    .error(R.drawable.ic_error_black_24dp)
+                    .into(mMovieImage);
+        }else{
+            Picasso.with(mMovieImage.getContext())
+                    .load(R.mipmap.ic_globo)
+                    .resize(imageWight, imageDimension)
+                    .onlyScaleDown()
+                    .error(R.drawable.ic_error_black_24dp)
+                    .into(mMovieImage);
+        }
     }
 
 }
