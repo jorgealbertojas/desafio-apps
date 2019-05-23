@@ -8,14 +8,12 @@ import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import com.example.jorge.infoglobo.R;
 import com.example.jorge.infoglobo.news.NewsActivity;
 import com.example.jorge.infoglobo.util.Common;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.core.IsInstanceOf;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +32,7 @@ public class NewsActivityTest {
     @Rule
     public ActivityTestRule<NewsActivity> regra() {
         // Specify a valid string.
-        Common.teste = true;
+        Common.test = true;
 
         return  new ActivityTestRule<>(NewsActivity.class);
     }
@@ -42,7 +40,6 @@ public class NewsActivityTest {
 
     @Test
     public void newsActivityTest() {
-        Common.teste = true;
 
         ViewInteraction viewGroup = onView(
                 allOf(childAtPosition(
