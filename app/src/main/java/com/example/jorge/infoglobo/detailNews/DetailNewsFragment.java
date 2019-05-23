@@ -80,9 +80,13 @@ public class DetailNewsFragment extends Fragment implements DetailNewsContract.V
                 sharingIntent.setType("text/plain");
                 if (mNews.getTitle() != null) {
                     sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mNews.getTitle());
+                }else{
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "O GLOBO");
                 }
                 if (mNews.getText() != null) {
                     sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mNews.getText());
+                }else{
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "O GLOBO");
                 }
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
